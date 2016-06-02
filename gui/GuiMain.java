@@ -1,6 +1,7 @@
 package gui;
 
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 
 import localization.Core;
 import localization.NXTMove;
@@ -42,5 +43,16 @@ public class GuiMain {
 	
 	public void algorithmFinished() {
 		// TODO: : enable grayed-out button(s) again
+	}
+	public void showMessageBox(String message, String title){
+		
+		Thread thread = new Thread(new Runnable() {
+            		@Override
+            		public void run() {
+                		JOptionPane.showMessageDialog(null, message, 
+                			title, JOptionPane.WARNING_MESSAGE);
+            		}
+        	});
+        	thread.start();
 	}
 }
